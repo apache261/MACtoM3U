@@ -1,18 +1,24 @@
 
 $(function(){
-var baseUrl = $('#host').val();
-var mac=  encodeURIComponent($('#mac').val());
-baseUrl += '/portal.php';
 
-    getToken(baseUrl,mac)
-    .done(function(tok){
-        tok.name
 
-    });
+$('#btn').attr('href', 'javascript::onClick()')
 
 });
 
 
+
+function onClick(){
+    let baseUrl = $('#host').val();
+    var mac=  encodeURIComponent($('#mac').val());
+    baseUrl += '/portal.php';
+
+    getToken(baseUrl,mac)
+    .done(function(tok){
+        console,log(tok);
+
+    });
+}
 
 function ajaxRequest(url,urlencodemac='',token=''){
     return $.ajax({
