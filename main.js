@@ -24,8 +24,10 @@ function sendRequest(){
     const data = convertFormToJSON('#frm');
     ajaxRequest(url,data)
     .done(function(tok){
-        $('#debugArea').text(tok.data);
         hideLoader();
+        const msg = tok.error != 0 ? tok.msg: tok.data;
+        $('#debugArea').text(msg);
+      
 
     });
 }

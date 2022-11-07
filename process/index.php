@@ -10,7 +10,7 @@ $obj = null;
 if($ISCOMMANDLINE){
     if(count($argv) < 3){print "requires 2 arguments"; exit();}
     $obj = new MacToM3U($argv[1],$argv[2]);
-}else if($ISCOMMANDLINE === false){
+}else if($ISCOMMANDLINE === false && $_SERVER['REQUEST_METHOD'] === 'POST'){
     $data = json_decode(file_get_contents('php://input'));
     $host = isset($data->host)?substr($data->host,0,-3):'';
     $mac = isset($data->mac)?$data->mac:'';
@@ -18,8 +18,8 @@ if($ISCOMMANDLINE){
 }
 
 if($obj == null){
-    echo "error";
-    exit();
+    echo json_encode(array('msg'=>'Invalid Request', 'data'=>'','error'=> 1));
+    exit(1);
 }
 
 
