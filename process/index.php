@@ -2,7 +2,7 @@
 require 'MacToM3U.php';
 
 
-
+header('Content-Type: application/json; charset=utf-8');
 $ISCOMMANDLINE = false;
 
 
@@ -41,6 +41,6 @@ if(!$obj->getLink()){
     exit(1);
 }
 
-echo json_encode(array('msg'=>'Success', 'data'=>$obj->getCredentials(),'error'=> 1),JSON_UNESCAPED_SLASHES);
+echo json_encode(array('msg'=>'Success', 'data'=>$obj->getCredentials(),'error'=> 0),JSON_UNESCAPED_SLASHES);
 exit(0);
 
