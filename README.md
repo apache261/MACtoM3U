@@ -4,3 +4,4 @@
 ### Requirements
 - PHP > 7.4
 - Composer > 2.4.4
+- Internet Connection (uses online API)
